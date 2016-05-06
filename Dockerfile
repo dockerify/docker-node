@@ -17,4 +17,4 @@ RUN apt-get update && apt-get -y upgrade && \
 RUN curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz \
      sudo tar zxf docker-1.11.1.tgz -C . \
      sudo mv docker/* /usr/local/bin/ \
-     sudo /usr/local/bin/docker daemon
+     && sudo /usr/local/bin/docker daemon
