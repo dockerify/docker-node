@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM codeclimate
 
 RUN apt-get update && apt-get -y upgrade && \
      apt-get install -y \
