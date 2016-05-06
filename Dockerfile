@@ -12,3 +12,6 @@ RUN apt-get update && apt-get -y upgrade && \
      jq \
      sudo \
      && apt-get clean
+
+RUN wget -O /bin/docker https://get.docker.com/builds/Linux/x86_64/docker-1.6.0
+RUN chmod +x /bin/docker
