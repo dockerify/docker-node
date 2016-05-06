@@ -1,4 +1,4 @@
-FROM node
+FROM alpine
 
 RUN apt-get update && apt-get -y upgrade && \
      apt-get install -y \
