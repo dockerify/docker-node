@@ -19,6 +19,4 @@ RUN sudo tar zxf docker-1.11.1.tgz
 RUN sudo mv docker/* /usr/local/bin/
 
 # RUN sudo /usr/local/bin/docker daemon
-RUN sudo docker -d
-RUN sudo status docker
-RUN sudo restart docker
+RUN sudo docker --help
