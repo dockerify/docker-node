@@ -1,17 +1,18 @@
 FROM ubuntu
 
 RUN apt-get update && apt-get -y upgrade && \
+     curl -sL https://deb.nodesource.com/setup_4.x | sudo bash - && \
      apt-get install -y \
      build-essential \
      curl \
      git-core \
+     jq \
+     nodejs \
      ntp \
+     unzip \
      wget \
      zip \
-     unzip \
-     jq \
      sudo && \
-     curl -sL https://deb.nodesource.com/setup_4.x | sudo bash - && \
      apt-get clean
 
 # To install, run the following command as root:
