@@ -10,8 +10,9 @@ RUN apt-get update && apt-get -y upgrade && \
      zip \
      unzip \
      jq \
-     sudo \
-     && apt-get clean
+     sudo && \
+     curl -sL https://deb.nodesource.com/setup_4.x | sudo bash - && \
+     apt-get clean
 
 # To install, run the following command as root:
 RUN curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz && sudo tar zxf docker-1.11.1.tgz -C /
