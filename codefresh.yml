@@ -4,4 +4,4 @@ steps:
     type: build
     description: Building the image...
     image-name: dockerify/node
-    tag: develop # ${{CF_BRANCH}}
+    tag: ${{CF_BRANCH}}
