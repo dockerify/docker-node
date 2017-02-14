@@ -1,0 +1,7 @@
+version: '1.0'
+steps:
+  build_image:
+    type: build
+    description: Building the image...
+    image-name: dockerify/node
+    tag: develop # ${{CF_BRANCH}}
