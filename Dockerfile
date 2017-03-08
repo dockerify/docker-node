@@ -9,13 +9,13 @@ RUN apt-get update && apt-get -y upgrade && \
     ntp \
     unzip \
     zip \
-    sudo && \
+    ca-certificates && \
     apt-get clean
      
 # download and install gosu
-#RUN curl -o gosu -sSL https://github.com/tianon/gosu/releases/download/1.10/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')
-#RUN sudo mv gosu /usr/local/bin/
-#RUN sudo chmod +x /usr/local/bin/gosu
+RUN curl -o gosu -sSL https://github.com/tianon/gosu/releases/download/1.10/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')
+RUN sudo mv gosu /usr/local/bin/
+RUN sudo chmod +x /usr/local/bin/gosu
 
 # download and install nodejs
 ENV NODE_VERSION 6.x
