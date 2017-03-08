@@ -18,9 +18,9 @@ RUN apt-get update && apt-get -y upgrade && \
     rm -rf /var/lib/apt/lists/*
      
 # download and install gosu
-RUN curl -o gosu -sSL "https://github.com/tianon/gosu/releases/download/1.10/gosu-$(dpkg --print-architecture)" && \
-    sudo mv gosu /usr/local/bin/ && \
-    sudo chmod +x /usr/local/bin/gosu
+RUN curl -o gosu -sSL "https://github.com/tianon/gosu/releases/download/1.10/gosu-$(dpkg --print-architecture)"
+RUN sudo mv gosu /usr/local/bin/
+RUN sudo chmod +x /usr/local/bin/gosu
 
 # download and install nodejs
 RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | gosu bash - && \
