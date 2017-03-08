@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y \
     build-essential \
     curl \
     git-core \
@@ -21,7 +21,7 @@ RUN sudo chmod +x /usr/local/bin/gosu
 
 # download and install nodejs
 ENV NODE_VERSION 6.x
-RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | gosu bash - && \
+RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | sudo bash - && \
     apt-get install nodejs -y && \
     apt-get clean
 RUN npm install -g npm bower
