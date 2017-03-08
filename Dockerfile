@@ -2,7 +2,7 @@ ENV UBUNTU_VERSION 16.04
 ENV DOCKER_VERSION 1.13.1
 ENV NODE_VERSION 6.x
 
-FROM ubuntu:"$UBUNTU_VERSION"
+FROM ubuntu:16.04
 
 RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y --no-install-recommends \
