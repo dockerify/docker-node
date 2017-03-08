@@ -9,6 +9,7 @@ RUN apt-get update && apt-get -y upgrade && \
     ntp \
     unzip \
     zip \
+    sudo \
     ca-certificates && \
     apt-get clean
      
