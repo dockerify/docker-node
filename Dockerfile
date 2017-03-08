@@ -14,8 +14,7 @@ RUN apt-get update && apt-get -y upgrade && \
     unzip \
     zip \
     sudo && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean
      
 # download and install gosu
 RUN curl -o gosu -sSL https://github.com/tianon/gosu/releases/download/1.10/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')
