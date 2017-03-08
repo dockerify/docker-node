@@ -21,8 +21,9 @@ RUN sudo chmod +x /usr/local/bin/gosu
 
 # download and install nodejs
 ENV NODE_VERSION 6.x
-RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | gosu -E bash - && \
-    apt-get install -y nodejs
+RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | gosu bash - && \
+    apt-get install nodejs -y && \
+    apt-get clean
 RUN npm install -g npm bower
      
 # To install, run the following command as root:
