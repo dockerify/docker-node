@@ -10,6 +10,7 @@ RUN apt-get update && apt-get -y upgrade && \
     unzip \
     zip \
     sudo \
+    bash \
     ca-certificates && \
     apt-get clean
      
@@ -20,7 +21,7 @@ RUN sudo chmod +x /usr/local/bin/gosu
 
 # download and install nodejs
 ENV NODE_VERSION 6.x
-RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | gosu bash - && \
+RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | gosu -E bash - && \
     apt-get install -y nodejs
 RUN npm install -g npm bower
      
