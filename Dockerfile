@@ -1,9 +1,5 @@
 FROM ubuntu:16.04
 
-ENV UBUNTU_VERSION 16.04
-ENV DOCKER_VERSION 1.13.1
-ENV NODE_VERSION 6.x
-
 RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y --no-install-recommends \
     build-essential \
@@ -17,22 +13,22 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-get clean
      
 # download and install gosu
-RUN curl -o gosu -sSL https://github.com/tianon/gosu/releases/download/1.10/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')
-RUN sudo mv gosu /usr/local/bin/
-RUN sudo chmod +x /usr/local/bin/gosu
+#RUN curl -o gosu -sSL https://github.com/tianon/gosu/releases/download/1.10/gosu-$(dpkg --print-architecture | awk -F- '{ print $NF }')
+#RUN sudo mv gosu /usr/local/bin/
+#RUN sudo chmod +x /usr/local/bin/gosu
 
 # download and install nodejs
-RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | gosu bash - && \
+ENV NODE_VERSION 6.x
+RUN curl -sSL https://deb.nodesource.com/setup_"$NODE_VERSION" | sudo bash - && \
     apt-get install -y --no-install-recommends nodejs
-
 RUN npm install -g npm bower
      
 # To install, run the following command as root:
+ENV DOCKER_VERSION 1.13.1
 RUN curl -sSLO https://get.docker.com/builds/Linux/x86_64/docker-"$DOCKER_VERSION".tgz && \
-    gosu tar --strip-components=1 -xvzf docker-"$DOCKER_VERSION".tgz -C /
-
-RUN gosu tar -xvzf docker-"$DOCKER_VERSION".tgz
-RUN gosu mv docker/* /usr/local/bin/
+    sudo tar --strip-components=1 -xvzf docker-"$DOCKER_VERSION".tgz -C /
+RUN sudo tar -xvzf docker-"$DOCKER_VERSION".tgz
+RUN sudo mv docker/* /usr/local/bin/
 
 # RUN gosu /usr/local/bin/docker daemon
-RUN gosu docker --help
+RUN sudo docker --help
