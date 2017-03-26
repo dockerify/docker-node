@@ -20,10 +20,10 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash - && \
 RUN npm install -g npm bower
      
 # To install, run the following command as root:
-ENV DOCKER_VERSION 1.13.1
-RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz && \
-     sudo tar --strip-components=1 -xvzf docker-$DOCKER_VERSION.tgz -C /
-RUN sudo tar -xvzf docker-$DOCKER_VERSION.tgz
+ARG DOCKER_VERSION=1.13.1
+RUN curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz && \
+     sudo tar --strip-components=1 -xvzf docker-${DOCKER_VERSION}.tgz -C /
+RUN sudo tar -xvzf docker-${DOCKER_VERSION}.tgz
 RUN sudo mv docker/* /usr/local/bin/
 
 # RUN sudo /usr/local/bin/docker daemon
