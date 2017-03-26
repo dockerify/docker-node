@@ -28,8 +28,8 @@ RUN npm install -g npm bower
      
 # To install, run the following command as root:
 ARG DOCKER_VERSION=1.13.1
-RUN curl -sSLO https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz && \
-    gosu tar --strip-components=1 -xvzf docker-${DOCKER_VERSION}.tgz -C /
+RUN curl -sSLO https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}.tgz
+RUN gosu tar --strip-components=1 -xvzf docker-${DOCKER_VERSION}.tgz -C /
 RUN gosu tar -xvzf docker-${DOCKER_VERSION}.tgz
 RUN gosu mv docker/* /usr/local/bin/
 
