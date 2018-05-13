@@ -14,10 +14,10 @@ RUN apt-get update && apt-get -y upgrade && \
      apt-get clean
      
 # download and install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - && \
      apt-get install nodejs -y && \
      apt-get clean
-RUN npm install -g npm bower
+RUN npm install -g npm
      
 # To install, run the following command as root:
 ARG DOCKER_VERSION=1.13.1
